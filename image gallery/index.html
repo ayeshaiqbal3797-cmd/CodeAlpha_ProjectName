@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 — Image Gallery | CodeAlpha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+      <h1>Interactive Image Gallery</h1>
+      <p class="subtitle">Filter by category, search photos, or click any image for full-screen Lightbox view</p>
+    </div>
+  </header>
+
+  <!-- Controls Container: Category Filter & Search -->
+  <section class="controls-section">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="nature">Nature</button>
+      <button class="filter-btn" data-category="architecture">Architecture</button>
+      <button class="filter-btn" data-category="technology">Technology</button>
+      <button class="filter-btn" data-category="art">Abstract Art</button>
+      <button class="filter-btn" data-category="urban">Urban</button>
+      <button class="filter-btn" data-category="wildlife">Wildlife</button>
+    </div>
+    
+    <div class="controls-actions">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search gallery images...">
+      </div>
+      <button class="add-image-btn" id="openAddModalBtn">
+        <i class="fa-solid fa-plus"></i> Add New Image
+      </button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <main class="gallery-container">
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Dynamic / Preloaded Cards -->
+    </div>
+    <div class="no-results" id="noResults" style="display: none;">
+      <i class="fa-solid fa-face-frown"></i>
+      <p>No images found matching your search.</p>
+    </div>
+  </main>
+
+  <!-- Add Image Modal -->
+  <div class="modal-backdrop" id="addImageModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-cloud-arrow-up"></i> Add New Image</h2>
+        <button class="modal-close" id="closeAddModalBtn">&times;</button>
+      </div>
+      <form id="addImageForm" class="modal-form">
+        <div class="form-group">
+          <label for="imgTitle">Image Title *</label>
+          <input type="text" id="imgTitle" placeholder="e.g. Glowing Neon Highway" required>
+        </div>
+        <div class="form-group">
+          <label for="imgCategory">Category *</label>
+          <select id="imgCategory" required>
+            <option value="nature">Nature</option>
+            <option value="architecture">Architecture</option>
+            <option value="technology">Technology</option>
+            <option value="art">Abstract Art</option>
+            <option value="urban">Urban</option>
+            <option value="wildlife">Wildlife</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="imgFile"><i class="fa-solid fa-file-image"></i> Upload Photo File from Device</label>
+          <input type="file" id="imgFile" accept="image/*" style="padding: 0.4rem; background: rgba(255,255,255,0.05); border: 1px dashed var(--border-color); border-radius: 0.5rem; width: 100%;">
+        </div>
+        <div class="form-group">
+          <label for="imgUrl">OR Image Web URL</label>
+          <input type="url" id="imgUrl" placeholder="https://images.unsplash.com/...">
+        </div>
+        <div class="preset-suggestions">
+          <p class="preset-label">Or choose a quick preset sample:</p>
+          <div class="preset-pills">
+            <button type="button" class="preset-pill" data-url="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" data-title="Tropical Sunset Beach" data-cat="nature">Beach Sunset</button>
+            <button type="button" class="preset-pill" data-url="https://images.unsplash.com/photo-1477959858617-67f30ac7261e?auto=format&fit=crop&w=1200&q=80" data-title="Metropolis Lights" data-cat="urban">Metropolis</button>
+            <button type="button" class="preset-pill" data-url="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80" data-title="Majestic Eagle in Flight" data-cat="wildlife">Eagle</button>
+            <button type="button" class="preset-pill" data-url="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" data-title="Matrix Code Rain" data-cat="technology">Matrix Code</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="cancelAddBtn">Cancel</button>
+          <button type="submit" class="btn-submit" id="submitAddImgBtn"><i class="fa-solid fa-plus"></i> Add to Gallery</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-btn close-btn" id="closeBtn" aria-label="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lightbox-btn nav-btn prev-btn" id="prevBtn" aria-label="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+      
+      <div class="lightbox-image-wrapper">
+        <img src="" alt="" id="lightboxImg" class="lightbox-img">
+        <div class="lightbox-caption">
+          <h3 id="lightboxTitle">Image Title</h3>
+          <p id="lightboxCategory">Category</p>
+          <span id="lightboxCounter" class="lightbox-counter">1 / 8</span>
+        </div>
+      </div>
+      
+      <button class="lightbox-btn nav-btn next-btn" id="nextBtn" aria-label="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
