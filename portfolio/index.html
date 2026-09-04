@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayesha Iqbal — Computer Science & Frontend Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="back-dashboard"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+      <a href="#hero" class="nav-logo">&lt;Ayesha<span>Iqbal</span> /&gt;</a>
+      
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#resume" class="nav-link">Education & Resume</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open Mobile Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="greeting-badge"><i class="fa-solid fa-sparkles"></i> Welcome to my Portfolio</span>
+        <h1>Hi, I'm <span class="highlight">Ayesha Iqbal</span></h1>
+        <h2 class="typing-text"><span id="typedPrefix">I am a </span><span id="typedElement"></span><span class="cursor">&nbsp;</span></h2>
+        <p class="hero-description">Computer Science student at University of Engineering & Technology (UET) Lahore (Completed 3 Semesters, Session 2025+) with a strong background in FSc Pre-Medical & Frontend Development Intern at CodeAlpha.</p>
+        
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#contact" class="btn btn-outline">Get In Touch <i class="fa-solid fa-paper-plane"></i></a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:ayeshaiqbal3797@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="avatar-card">
+          <div class="avatar-glow"></div>
+          <img src="assets/profile-avatar.svg" alt="Ayesha Iqbal Profile" class="profile-img">
+          <div class="floating-badge badge-1"><i class="fa-solid fa-graduation-cap"></i> UET CS (Sem 3)</div>
+          <div class="floating-badge badge-2"><i class="fa-brands fa-js"></i> CodeAlpha Intern</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Get To Know Me</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <i class="fa-solid fa-code card-icon"></i>
+          <h3>Clean Code & Logic</h3>
+          <p>Strong foundations in object-oriented programming, data structures, and modern JavaScript standards.</p>
+        </div>
+        <div class="about-card">
+          <i class="fa-solid fa-laptop-code card-icon"></i>
+          <h3>Pre-Medical to Tech Transition</h3>
+          <p>Transitioned from FSc Pre-Medical into Computer Science, successfully completing 3 semesters with strong analytical & coding proficiency.</p>
+        </div>
+        <div class="about-card">
+          <i class="fa-solid fa-graduation-cap card-icon"></i>
+          <h3>Academic Excellence</h3>
+          <p>Pursuing Computer Science at UET Lahore (Session 2025) with top academic distinction (97.36% Matric, 89.82% FSc Pre-Medical).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Technical Expertise</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-html5"></i> HTML5 / CSS3 Layouts</span>
+              <span>95%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-js"></i> JavaScript (ES6+ / Web APIs)</span>
+              <span>92%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 92%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-solid fa-cubes"></i> DOM Manipulation & Dynamic UI</span>
+              <span>90%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Computer Science & Tools</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-solid fa-laptop-code"></i> C++ / OOP & Data Structures</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-brands fa-git-alt"></i> Git Version Control & GitHub</span>
+              <span>88%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 88%;"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span><i class="fa-solid fa-palette"></i> Responsive UI & Glassmorphism</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">My Recent Work</span>
+        <h2 class="section-title">CodeAlpha Internship Projects</h2>
+      </div>
+
+      <div class="project-filters">
+        <button class="proj-filter-btn active" data-filter="all">All Projects</button>
+        <button class="proj-filter-btn" data-filter="codealpha">CodeAlpha Tasks</button>
+        <button class="proj-filter-btn" data-filter="academic">Academic Projects</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="codealpha">
+          <div class="proj-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Image Gallery">
+            <div class="proj-overlay">
+              <a href="../task1_image_gallery/index.html" class="proj-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="proj-content">
+            <span class="proj-tag">CodeAlpha Task 1</span>
+            <h3>Interactive Image Gallery</h3>
+            <p>Responsive CSS Grid gallery with 30 HD photos, category filtering, search, "+ Add Image" modal, permanent localStorage, and Lightbox viewer.</p>
+            <div class="proj-tech">
+              <span>HTML5</span>
+              <span>CSS Grid</span>
+              <span>JavaScript</span>
+              <span>localStorage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card" data-category="codealpha">
+          <div class="proj-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=800&q=80" alt="Calculator App">
+            <div class="proj-overlay">
+              <a href="../task2_calculator/index.html" class="proj-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="proj-content">
+            <span class="proj-tag">CodeAlpha Task 2</span>
+            <h3>Glassmorphic Calculator</h3>
+            <p>Feature-rich calculator with scientific operations, calculation history log, keyboard input, and theme toggle.</p>
+            <div class="proj-tech">
+              <span>JS Math Engine</span>
+              <span>Keyboard API</span>
+              <span>Glassmorphism</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card" data-category="codealpha">
+          <div class="proj-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80" alt="Music Player">
+            <div class="proj-overlay">
+              <a href="../task4_music_player/index.html" class="proj-link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+          </div>
+          <div class="proj-content">
+            <span class="proj-tag">CodeAlpha Task 4</span>
+            <h3>Web Audio Music Player</h3>
+            <p>Cyber audio player with 22+ songs, spinning vinyl animation, audio frequency visualizer, "+ Add Song" modal, and permanent localStorage playlist.</p>
+            <div class="proj-tech">
+              <span>Web Audio API</span>
+              <span>Canvas</span>
+              <span>Playlist Engine</span>
+              <span>localStorage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Section -->
+  <section class="section resume-section" id="resume">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Education & Internship</span>
+        <h2 class="section-title">Ayesha Iqbal's Resume</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2025 — Present</span>
+            <h3>B.S. Computer Science (Completed 3 Semesters)</h3>
+            <h4>University of Engineering & Technology (UET), Lahore</h4>
+            <p>Session 2025+. Successfully completed 3 semesters with focus on Object-Oriented Programming, Data Structures, Algorithms, and Frontend Development.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2026 — Present</span>
+            <h3>Frontend Development Intern</h3>
+            <h4>CodeAlpha</h4>
+            <p>Developing dynamic web applications including 30-Item Image Gallery with localStorage, Scientific Calculator, Developer Portfolio, and Web Audio Music Player.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2023 — 2025</span>
+            <h3>Higher Secondary School Certificate (HSSC — Pre-Medical)</h3>
+            <h4>Punjab Group of Colleges Jaranwala</h4>
+            <p>Scored 89.82% (988 / 1100 marks) in FSc Pre-Medical under BISE Faisalabad Board before transitioning into Computer Science.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">2021 — 2023</span>
+            <h3>Secondary School Certificate (SSC — Science / Matric)</h3>
+            <h4>AW Grammer High School</h4>
+            <p>Scored 97.36% (1071 / 1100 marks) under BISE Faisalabad Board with top academic honors.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-download">
+        <button id="downloadResumeBtn" class="btn btn-primary"><i class="fa-solid fa-file-arrow-down"></i> Download Ayesha Iqbal Resume (PDF/TXT)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Let's Connect</span>
+        <h2 class="section-title">Send Me a Message</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Have a project proposal, opportunity, or question? Feel free to reach out to me directly!</p>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>Location / Institution</strong>
+              <p>UET Lahore, Punjab, Pakistan</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p>ayeshaiqbal3797@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+              <strong>Degree / Discipline</strong>
+              <p>B.S. Computer Science (UET Lahore)</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ayeshaiqbal3797@gmail.com" method="POST" target="hidden_form_iframe">
+          <!-- FormSubmit Configuration for Real Inbox Delivery -->
+          <input type="hidden" name="_subject" value="New Portfolio Contact Message for Ayesha Iqbal!">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your Full Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+          </div>
+          <button type="submit" id="submitFormBtn" class="btn btn-primary w-full">
+            <span id="btnText">Send Email Message <i class="fa-solid fa-paper-plane"></i></span>
+          </button>
+
+          <div class="email-direct-option" style="margin-top: 0.75rem; text-align: center;">
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Or send directly from your mail app: 
+              <a href="mailto:ayeshaiqbal3797@gmail.com" id="mailtoFallbackLink" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 600;">Open Gmail / Email Client</a>
+            </p>
+          </div>
+        </form>
+        
+        <!-- Hidden iframe target for seamless background POST form submission -->
+        <iframe name="hidden_form_iframe" id="hidden_form_iframe" style="display:none;"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Message sent successfully! Thank you for reaching out.</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Ayesha Iqbal. All rights reserved. Created for CodeAlpha Frontend Internship.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
