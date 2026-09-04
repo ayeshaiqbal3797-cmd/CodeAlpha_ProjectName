@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4 — Music Player | CodeAlpha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="player-app">
+    <!-- Header -->
+    <header class="player-header">
+      <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+      <h2>Cyber Beat Player</h2>
+      <div class="header-actions">
+        <button id="openAddSongBtn" class="add-song-header-btn" title="Add New Song"><i class="fa-solid fa-plus"></i> Add Song</button>
+        <button id="playlistToggle" class="icon-btn" title="Toggle Playlist"><i class="fa-solid fa-list-ul"></i></button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="player-container">
+      <!-- Player Main Card -->
+      <div class="player-card">
+        <!-- Album Art / Vinyl Container -->
+        <div class="album-art-wrapper">
+          <div class="vinyl-record" id="vinylRecord">
+            <img src="" alt="Album Cover" id="albumArt" class="album-art">
+            <div class="vinyl-center"></div>
+          </div>
+        </div>
+
+        <!-- Song Metadata -->
+        <div class="song-info">
+          <h3 id="songTitle">Track Title</h3>
+          <p id="songArtist">Artist Name</p>
+        </div>
+
+        <!-- Live Audio Spectrum Visualizer -->
+        <div class="visualizer-container">
+          <canvas id="visualizerCanvas" width="300" height="40"></canvas>
+        </div>
+
+        <!-- Progress Seek Bar -->
+        <div class="progress-area">
+          <input type="range" id="progressBar" min="0" max="100" value="0" step="0.1">
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="totalDuration">0:00</span>
+          </div>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="controls-row">
+          <button id="shuffleBtn" class="control-btn" title="Shuffle Off"><i class="fa-solid fa-shuffle"></i></button>
+          <button id="prevBtn" class="control-btn nav-control" title="Previous Track"><i class="fa-solid fa-backward-step"></i></button>
+          <button id="playPauseBtn" class="control-btn play-btn" title="Play/Pause"><i class="fa-solid fa-play"></i></button>
+          <button id="nextBtn" class="control-btn nav-control" title="Next Track"><i class="fa-solid fa-forward-step"></i></button>
+          <button id="repeatBtn" class="control-btn" title="Repeat Off"><i class="fa-solid fa-repeat"></i></button>
+        </div>
+
+        <!-- Volume Control -->
+        <div class="volume-area">
+          <button id="muteBtn" class="volume-icon"><i class="fa-solid fa-volume-high"></i></button>
+          <input type="range" id="volumeSlider" min="0" max="1" value="0.8" step="0.01">
+        </div>
+      </div>
+
+      <!-- Playlist Panel -->
+      <div class="playlist-panel" id="playlistPanel">
+        <div class="playlist-header">
+          <div class="playlist-title-area">
+            <h3>Playlist</h3>
+            <span id="playlistCount" class="playlist-count">22 Tracks</span>
+          </div>
+          <button id="openAddSongBtn2" class="add-playlist-btn"><i class="fa-solid fa-plus"></i> Add Track</button>
+        </div>
+        <div class="playlist-tracks" id="playlistTracks">
+          <!-- Dynamic Playlist Items -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Song Modal (Allows Audio File Upload & MP3 URLs!) -->
+  <div class="modal-backdrop" id="addSongModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2><i class="fa-solid fa-compact-disc"></i> Add Song to Playlist</h2>
+        <button class="modal-close" id="closeAddSongModalBtn">&times;</button>
+      </div>
+      <form id="addSongForm" class="modal-form">
+        <div class="form-group">
+          <label for="songTitleInput">Song Title *</label>
+          <input type="text" id="songTitleInput" placeholder="e.g. My Favorite Song" required>
+        </div>
+        <div class="form-group">
+          <label for="songArtistInput">Artist Name *</label>
+          <input type="text" id="songArtistInput" placeholder="e.g. Favorite Artist" required>
+        </div>
+
+        <div class="form-group">
+          <label for="songFileInput"><i class="fa-solid fa-file-audio"></i> Choose MP3/Audio File from your Device</label>
+          <input type="file" id="songFileInput" accept="audio/*">
+          <p class="field-hint">Pick any audio/MP3 file from your computer or phone!</p>
+        </div>
+
+        <div class="form-group">
+          <label for="songAudioUrlInput"><i class="fa-solid fa-link"></i> Or Paste Direct Audio MP3 URL</label>
+          <input type="url" id="songAudioUrlInput" placeholder="https://cdn.pixabay.com/audio/...">
+        </div>
+
+        <div class="form-group">
+          <label for="songCoverInput">Album Cover Image URL *</label>
+          <input type="url" id="songCoverInput" placeholder="https://images.unsplash.com/..." required>
+        </div>
+
+        <div class="preset-suggestions">
+          <p class="preset-label">Or click a sample real audio track:</p>
+          <div class="preset-pills">
+            <button type="button" class="preset-pill" data-title="Acoustic Breeze" data-artist="Benjamin" data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-cover="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80">Acoustic Breeze</button>
+            <button type="button" class="preset-pill" data-title="Electronic Chill" data-artist="SoundHelix" data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-cover="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80">Electronic Chill</button>
+            <button type="button" class="preset-pill" data-title="Ambient Synth" data-artist="Cyber Sound" data-url="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-cover="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80">Ambient Synth</button>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" id="cancelAddSongBtn">Cancel</button>
+          <button type="submit" class="btn-submit"><i class="fa-solid fa-plus"></i> Save Song</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
